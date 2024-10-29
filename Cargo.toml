@@ -1,0 +1,22 @@
+[package]
+name = "kronos-server"
+version = "1.0.0"
+edition = "2021"
+
+[dependencies]
+colored = "2.1.0"
+dotenv = "0.15.0"
+env_logger = "0.11.5"
+futures-util = "0.3.31"
+log = "0.4.22"
+native-tls = { version = "0.2.12", optional = true } # TLS optionnel
+serde = { version = "1.0.214", features = ["derive"] }
+serde_json = "1.0.132"
+tokio = { version = "1.41.0", features = ["full"] }
+tokio-native-tls = { version = "0.3.1", optional = true }
+tokio-tungstenite = "0.24.0"
+tungstenite = "0.24.0"
+
+[features]
+default = []
+with-ssl = ["tokio-native-tls", "native-tls"]
